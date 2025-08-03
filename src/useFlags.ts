@@ -6,7 +6,6 @@ type UpdateFlags<T extends Record<string, boolean>> = Partial<Record<keyof T, bo
  * ### `useFlagsState`
  * Facilita el manejo de múltiples **banderas booleanas** en el estado de un componente.
  * Tiene la capacidad para actualizar cada bandera individualmente o varias al mismo tiempo.
- * ### ⚠️Importante!!!⚠️ Las banderas que no se actualicen, vuelven a su estado inicial.
  * ### Un objeto vacío vuelve todas las banderas a su estado inicial.
  *
  * ---

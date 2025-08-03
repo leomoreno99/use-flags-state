@@ -1,6 +1,6 @@
 {
   "name": "use-flags-state",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A React hook for managing multiple boolean flags in a single state object, with individual and batch updates, and optional reset to initial values.",
   "source": "src/index.ts",
   "main": "dist/index.js",
@@ -25,6 +25,10 @@
   "engines": {
     "node": ">= 16.0.0"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leomoreno99/use-flags-state.git"
+  },
   "keywords": [
     "flags",
     "use-flags",
@@ -35,6 +39,10 @@
   ],
   "author": "Leo Moreno (leomoreno330@gmail.com)",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/leomoreno99/use-flags-state/issues"
+  },
+  "homepage": "https://github.com/leomoreno99/use-flags-state#readme",
   "files": [
     "dist"
   ],
