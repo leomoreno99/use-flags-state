@@ -1,0 +1,56 @@
+{
+  "name": "use-flags-state",
+  "version": "1.0.0",
+  "description": "A React hook for managing multiple boolean flags in a single state object, with individual and batch updates, and optional reset to initial values.",
+  "source": "src/index.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.module.js",
+  "esmodule": "dist/index.mjs",
+  "umd:main": "dist/index.umd.js",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "module": "./dist/index.module.js",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "sideEffects": false,
+  "scripts": {
+    "test": "jest",
+    "build": "rimraf dist && microbundle build --entry src/index.ts --name use-flags-state --tsconfig tsconfig.json",
+    "prepublishOnly": "npm run build"
+  },
+  "engines": {
+    "node": ">= 16.0.0"
+  },
+  "keywords": [
+    "flags",
+    "use-flags",
+    "use-flags-state",
+    "use-flags-state-react",
+    "react-hook",
+    "react"
+  ],
+  "author": "Leo Moreno (leomoreno330@gmail.com)",
+  "license": "MIT",
+  "files": [
+    "dist"
+  ],
+  "peerDependencies": {
+    "react": "*"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.6.4",
+    "@testing-library/react": "^16.3.0",
+    "@types/react": "^19.1.9",
+    "@types/react-dom": "^19.1.7",
+    "jest": "^30.0.5",
+    "microbundle": "^0.15.1",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "rimraf": "^6.0.1",
+    "typescript": "^5.9.2"
+  }
+}
