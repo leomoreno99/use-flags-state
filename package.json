@@ -1,6 +1,6 @@
 {
   "name": "use-flags-state",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "A React hook for managing multiple boolean flags in a single state object, with individual and batch updates, and optional reset to initial values.",
   "source": "src/index.ts",
   "main": "dist/index.js",
@@ -42,7 +42,7 @@
   "bugs": {
     "url": "https://github.com/leomoreno99/use-flags-state/issues"
   },
-  "homepage": "https://github.com/leomoreno99/use-flags-state#readme",
+  "homepage": "https://useflags.vercel.app",
   "files": [
     "dist"
   ],

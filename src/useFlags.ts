@@ -3,22 +3,21 @@ import { useState, useCallback, Dispatch, SetStateAction } from 'react'
 type UpdateFlags<T extends Record<string, boolean>> = Partial<Record<keyof T, boolean>>
 
 /**
- * ### `useFlagsState`
- * Facilita el manejo de múltiples **banderas booleanas** en el estado de un componente.
- * Tiene la capacidad para actualizar cada bandera individualmente o varias al mismo tiempo.
- * ### Un objeto vacío vuelve todas las banderas a su estado inicial.
+ * #### **Parameters:**
+ * - **`initialState`**: Object with the initial boolean flags
+ * - **`reset`** (optional): Boolean that determines if unspecified flags should reset to their 
+ *   initial values when using `setFlags()`. Default: `true`
  *
  * ---
- * #### **Parámetros:**
- * - **`initialState`**: Objeto con las banderas booleanas iniciales.
+ * #### **Returns:**
+ * - **`flags`**: Object with the current boolean flags
+ * 
+ * - **`setFlags`**: Function to update multiple flags at once. By default, unspecified flags 
+ *   are reset to their initial values unless `reset=false` is passed as second parameter
+ * 
+ * - **`setFlag`**: Function to update an individual flag without affecting others. 
+ *   Returns a function that accepts either a boolean value or an updater function
  *
- * ---
- * #### **Retorno:**
- * - **`flags`**: Objeto con las banderas booleanas actuales.
- *
- * - **`setFlags`**: Función para actualizar **varias** banderas booleanas al mismo tiempo.
- *
- * - **`setFlag`**: Función para actualizar una **bandera booleana individualmente**.
  */
 
 export const useFlagsState = <T extends Record<string, boolean>>(
