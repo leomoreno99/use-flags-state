@@ -52,13 +52,16 @@
   "devDependencies": {
     "@testing-library/jest-dom": "^6.6.4",
     "@testing-library/react": "^16.3.0",
+    "@types/jest": "^30.0.0",
     "@types/react": "^19.1.9",
     "@types/react-dom": "^19.1.7",
     "jest": "^30.0.5",
+    "jest-environment-jsdom": "^30.2.0",
     "microbundle": "^0.15.1",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "rimraf": "^6.0.1",
+    "ts-jest": "^29.4.6",
     "typescript": "^5.9.2"
   }
 }

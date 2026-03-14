@@ -15,8 +15,11 @@ type UpdateFlags<T extends Record<string, boolean>> = Partial<Record<keyof T, bo
  * - **`setFlags`**: Function to update multiple flags at once. By default, unspecified flags 
  *   are reset to their initial values unless `reset=false` is passed as second parameter
  * 
- * - **`setFlag`**: Function to update an individual flag without affecting others. 
- *   Returns a function that accepts either a boolean value or an updater function
+ * - **`setFlag`**: Function to update an individual flag. By default, when reset=true,
+ *   unspecified flags are reset to their initial values. When reset=false, only the
+ *   specified flag is updated. Returns a function that accepts either a boolean value
+ *   or an updater function. Accepts an optional second parameter `reset` (defaults to
+ *   the hook's `defaultReset` value).
  *
  */
 
@@ -44,15 +47,32 @@ export const useFlagsState = <T extends Record<string, boolean>>(
   )
 
   const setFlag = useCallback(
-    (key: keyof T): Dispatch<SetStateAction<boolean>> =>
+    (key: keyof T, reset: boolean = defaultReset): Dispatch<SetStateAction<boolean>> =>
       (valueOrUpdater) =>
-        setState(prev => ({
-          ...prev,
-          [key]: typeof valueOrUpdater === 'function'
+        setState(prev => {
+          const newValue = typeof valueOrUpdater === 'function'
             ? valueOrUpdater(prev[key])
-            : valueOrUpdater,
-        })),
-    []
+            : valueOrUpdater
+
+          if (reset) {
+            // Resetear todos los flags a sus valores iniciales y luego actualizar el flag especificado
+            const resetState = Object.keys(initialState).reduce((acc, k) => {
+              acc[k as keyof T] = initialState[k as keyof T]
+              return acc
+            }, {} as T)
+            return {
+              ...resetState,
+              [key]: newValue
+            }
+          } else {
+            // Solo actualizar el flag especificado sin afectar los demás
+            return {
+              ...prev,
+              [key]: newValue
+            }
+          }
+        }),
+    [defaultReset, initialState]
   )
 
   return { flags: state, setFlags, setFlag }
